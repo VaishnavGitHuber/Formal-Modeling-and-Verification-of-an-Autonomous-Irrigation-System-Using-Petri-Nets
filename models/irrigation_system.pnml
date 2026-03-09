@@ -1,0 +1,565 @@
+<?xml version='1.0' encoding='utf-8'?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="Net-IrrigationSystem" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text>Autonomous Irrigation System</text>
+    </name>
+    <page id="page0">
+      <place id="actuations_done">
+        <name>
+          <text>Actuations Done</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="1120" y="350" />
+        </graphics>
+      </place>
+      <place id="cycle_done">
+        <name>
+          <text>Cycle Done</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="1660" y="350" />
+        </graphics>
+      </place>
+      <place id="fert_complete">
+        <name>
+          <text>Fertilisation Complete</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="940" y="550" />
+        </graphics>
+      </place>
+      <place id="fertilising">
+        <name>
+          <text>Fertilising</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="760" y="550" />
+        </graphics>
+      </place>
+      <place id="idle">
+        <name>
+          <text>Idle</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <graphics>
+          <position x="80" y="350" />
+        </graphics>
+      </place>
+      <place id="irr_complete">
+        <name>
+          <text>Irrigation Complete</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="940" y="150" />
+        </graphics>
+      </place>
+      <place id="irrigating">
+        <name>
+          <text>Irrigating</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="760" y="150" />
+        </graphics>
+      </place>
+      <place id="logging">
+        <name>
+          <text>Logging</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="1300" y="350" />
+        </graphics>
+      </place>
+      <place id="moist_low">
+        <name>
+          <text>Moisture Low</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="400" y="200" />
+        </graphics>
+      </place>
+      <place id="moist_ok">
+        <name>
+          <text>Moisture OK</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="400" y="500" />
+        </graphics>
+      </place>
+      <place id="notifying">
+        <name>
+          <text>Notifying</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="1480" y="350" />
+        </graphics>
+      </place>
+      <place id="nutr_low">
+        <name>
+          <text>Nutrient Low</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="580" y="200" />
+        </graphics>
+      </place>
+      <place id="nutr_ok">
+        <name>
+          <text>Nutrient OK</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="580" y="500" />
+        </graphics>
+      </place>
+      <place id="sensing">
+        <name>
+          <text>Sensing</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="220" y="350" />
+        </graphics>
+      </place>
+      <transition id="t_fertilisation_complete">
+        <name>
+          <text>Fertilisation Complete</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="850" y="550" />
+        </graphics>
+      </transition>
+      <transition id="t_irrigation_complete">
+        <name>
+          <text>Irrigation Complete</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="850" y="150" />
+        </graphics>
+      </transition>
+      <transition id="t_log_complete">
+        <name>
+          <text>Log Complete</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="1390" y="350" />
+        </graphics>
+      </transition>
+      <transition id="t_notify">
+        <name>
+          <text>Send Notification</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="1570" y="350" />
+        </graphics>
+      </transition>
+      <transition id="t_reset">
+        <name>
+          <text>Reset (Next Cycle)</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="1740" y="350" />
+        </graphics>
+      </transition>
+      <transition id="t_sense_dry_poor">
+        <name>
+          <text>Sense: Dry + Low Nutrient</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="310" y="110" />
+        </graphics>
+      </transition>
+      <transition id="t_sense_dry_rich">
+        <name>
+          <text>Sense: Dry + Adequate Nutrient</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="310" y="270" />
+        </graphics>
+      </transition>
+      <transition id="t_sense_moist_poor">
+        <name>
+          <text>Sense: Moist + Low Nutrient</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="310" y="430" />
+        </graphics>
+      </transition>
+      <transition id="t_sense_moist_rich">
+        <name>
+          <text>Sense: Moist + Adequate Nutrient</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="310" y="590" />
+        </graphics>
+      </transition>
+      <transition id="t_skip_fertilisation">
+        <name>
+          <text>Skip Fertilisation (Nutrient OK)</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="670" y="200" />
+        </graphics>
+      </transition>
+      <transition id="t_skip_irrigation">
+        <name>
+          <text>Skip Irrigation (Moisture OK)</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="580" y="500" />
+        </graphics>
+      </transition>
+      <transition id="t_start_fertilisation">
+        <name>
+          <text>Start Fertilisation</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="670" y="550" />
+        </graphics>
+      </transition>
+      <transition id="t_start_irrigation">
+        <name>
+          <text>Start Irrigation</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="580" y="150" />
+        </graphics>
+      </transition>
+      <transition id="t_start_logging">
+        <name>
+          <text>Start Logging</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="1210" y="350" />
+        </graphics>
+      </transition>
+      <transition id="t_start_sensing">
+        <name>
+          <text>Start Sensing</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="150" y="350" />
+        </graphics>
+      </transition>
+      <transition id="t_sync_actuations">
+        <name>
+          <text>Sync: Actuations Done</text>
+          <graphics>
+            <offset x="0.0" y="-20.0" />
+          </graphics>
+        </name>
+        <graphics>
+          <position x="1030" y="350" />
+        </graphics>
+      </transition>
+      <arc id="arc1" source="fertilising" target="t_fertilisation_complete">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc2" source="t_fertilisation_complete" target="fert_complete">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc3" source="irrigating" target="t_irrigation_complete">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc4" source="t_irrigation_complete" target="irr_complete">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc5" source="logging" target="t_log_complete">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc6" source="t_log_complete" target="notifying">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc7" source="notifying" target="t_notify">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc8" source="t_notify" target="cycle_done">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc9" source="cycle_done" target="t_reset">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc10" source="t_reset" target="idle">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc11" source="sensing" target="t_sense_dry_poor">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc12" source="t_sense_dry_poor" target="moist_low">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc13" source="t_sense_dry_poor" target="nutr_low">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc14" source="sensing" target="t_sense_dry_rich">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc15" source="t_sense_dry_rich" target="moist_low">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc16" source="t_sense_dry_rich" target="nutr_ok">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc17" source="sensing" target="t_sense_moist_poor">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc18" source="t_sense_moist_poor" target="moist_ok">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc19" source="t_sense_moist_poor" target="nutr_low">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc20" source="sensing" target="t_sense_moist_rich">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc21" source="t_sense_moist_rich" target="moist_ok">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc22" source="t_sense_moist_rich" target="nutr_ok">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc23" source="nutr_ok" target="t_skip_fertilisation">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc24" source="t_skip_fertilisation" target="fert_complete">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc25" source="moist_ok" target="t_skip_irrigation">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc26" source="t_skip_irrigation" target="irr_complete">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc27" source="nutr_low" target="t_start_fertilisation">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc28" source="t_start_fertilisation" target="fertilising">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc29" source="moist_low" target="t_start_irrigation">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc30" source="t_start_irrigation" target="irrigating">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc31" source="actuations_done" target="t_start_logging">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc32" source="t_start_logging" target="logging">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc33" source="idle" target="t_start_sensing">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc34" source="t_start_sensing" target="sensing">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc35" source="fert_complete" target="t_sync_actuations">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc36" source="irr_complete" target="t_sync_actuations">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+      <arc id="arc37" source="t_sync_actuations" target="actuations_done">
+        <inscription>
+          <text>1</text>
+        </inscription>
+        <graphics />
+      </arc>
+    </page>
+  </net>
+</pnml>
